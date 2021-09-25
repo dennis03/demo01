@@ -19,11 +19,15 @@ def evalEncryption():
     return jsonify(result)
 
 def encrypt(n, text):
+    text2 = ''
+    for c1 in text:
+        if c1.isalnum():
+            text2 += c1.upper()
     outText = ''
-    n2 = len(text)//n + 1
-    for i in range(len(text)):
+    n2 = len(text2)//n + 1
+    for i in range(len(text2)):
         n3 = n2*(i%n) + (i-(i%n))//n
-        outText += text[n3]
+        outText += text2[n3]
     return outText
 
 
